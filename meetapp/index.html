@@ -1,0 +1,247 @@
+<html lang = "en">
+	<head>
+		<meta charset = "utf-8">
+		<title>Create Page</title>
+		<meta name="viewport" content="width=device-width,initial-scale = 1">
+		<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+		
+		<link rel = "stylesheet" href="bootstrap-flatly.css" media="screen">
+		<link rel="stylesheet" href="bootstrap-flatly-min.css">
+		
+		
+		
+		
+		<script src = "jquery-1.10.2.js"></script>
+		<link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+		<script src="jquery-ui/jquery-ui.js"></script>
+		
+		
+		<link rel="stylesheet" href="custom.css">
+		
+		<script src = "option.js"></script>
+	</head>
+	
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="../" class="navbar-brand">MeetApp</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div class = "container">
+			<div class="page-header">
+				<div class="row">
+					<div class="col-lg-3">
+						<h1>Front-end Meetup</h1>
+						<p class="lead">Duration: 2 hours</p>
+					</div>
+					
+					<div class = "col-lg-4">
+						<h1> Test</h1>
+					</div>
+				</div>
+			</div>
+			
+			<div class="bs-docs-section">
+				
+				<div class="row">
+					
+					<div class = "col-lg-12">	
+						<div class="bs-component">
+							<table id = "grid" class="table table-bordered text-center">
+								
+								<tbody>
+									
+										
+									<tr>
+										<td class="info"> DUMMY </td>
+										<td class=""> USE OPTION BELOW </td>
+										<td class=""> CLICK UPDATE </td>
+										<td class=""> 13:00 </td>
+									</tr>
+									
+								</tbody>
+							</table> 
+						</div><!-- /example -->
+					</div>
+				</div>
+			</div>
+			
+			<div class = "bs-docs-section">
+	<div class = "row">
+		<div class = "col-lg-8 col-md-7 col-sm-6">
+			<div class = "well bs-component">
+				<div class = "form-horizontal">
+					
+						<p><h2>Options</h2></p>
+						<div class = "form-group">
+							<label class = "col-lg-2 control-label">Radios</label>
+							<div class = "col-lg-10">
+								<div class = "radio">
+									<label>
+										<input type = "radio" id = "sixty" checked>60 min
+									</label>
+								</div>
+								<div class = "radio">
+									<label>
+										<input type = "radio" id = "daily" >Day
+									</label>
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="form-group">
+							<label for="startD" class="col-lg-2 control-label">Start Date</label>
+							<div class="col-lg-10">
+								<input type="text" class="form-control" id="startDate" placeholder="startD">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="startD" class="col-lg-2 control-label">End Date</label>
+							<div class="col-lg-10">
+								<input type="text" class="form-control" id="endDate" placeholder="startD">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class = "col-lg-2 control-label">Days of Week</label>
+							<div class = "col-lg-10">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id = "1"> Mon
+								</label>
+							</div>
+							
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" id = "2"> Tue
+								</label>
+							</div>
+							
+							<div class="checkbox">
+								<label>
+									 <input type="checkbox" id = "3"> Wed
+								</label>
+							</div>
+							
+							<div class="checkbox">
+								<label>
+									 <input type="checkbox" id = "4"> Thu
+								</label>
+							</div>
+							
+							<div class="checkbox">
+								<label>
+									 <input type="checkbox" id = "5"> Fri
+								</label>
+							</div>
+							
+							<div class="checkbox">
+								<label>
+									 <input type="checkbox" id = "6"> Sat
+								</label>
+							</div>
+							
+							<div class="checkbox">
+								<label>
+									 <input type="checkbox" id = "0"> Sun
+								</label>
+							</div>
+							</div>
+						</div>
+						<div id = "timepicker">
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">From</label>
+							<div class="col-lg-10">
+								<select class="form-control" id="from">
+									<option value = "0">00:00</option>
+									<option value = "1">01:00</option>
+									<option value = "2">02:00</option>
+									<option value = "3">03:00</option>
+									<option value = "4">04:00</option>
+									<option value = "5">05:00</option>
+									<option value = "6">06:00</option>
+									<option value = "7">07:00</option>
+									<option value = "8">08:00</option>
+									<option value = "9">09:00</option>
+									<option value = "10">10:00</option>
+									<option value = "11">11:00</option>
+									<option value = "12">12:00</option>
+									<option value = "13">13:00</option>
+									<option value = "14">14:00</option>
+									<option value = "15">15:00</option>
+									<option value = "16">16:00</option>
+									<option value = "17">17:00</option>
+									<option value = "18">18:00</option>
+									<option value = "19">19:00</option>
+									<option value = "20">20:00</option>
+									<option value = "21">21:00</option>
+									<option value = "22">22:00</option>
+									<option value = "23">23:00</option>
+								</select>
+								
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="select" class="col-lg-2 control-label">To</label>
+							<div class="col-lg-10">
+								<select class="form-control" id="to">
+									<option value = "0">00:00</option>
+									<option value = "1">01:00</option>
+									<option value = "2">02:00</option>
+									<option value = "3">03:00</option>
+									<option value = "4">04:00</option>
+									<option value = "5">05:00</option>
+									<option value = "6">06:00</option>
+									<option value = "7">07:00</option>
+									<option value = "8">08:00</option>
+									<option value = "9">09:00</option>
+									<option value = "10">10:00</option>
+									<option value = "11">11:00</option>
+									<option value = "12">12:00</option>
+									<option value = "13">13:00</option>
+									<option value = "14">14:00</option>
+									<option value = "15">15:00</option>
+									<option value = "16">16:00</option>
+									<option value = "17">17:00</option>
+									<option value = "18">18:00</option>
+									<option value = "19">19:00</option>
+									<option value = "20">20:00</option>
+									<option value = "21">21:00</option>
+									<option value = "22">22:00</option>
+									<option value = "23">23:00</option>
+								</select>
+								
+							</div>
+						</div>
+						</div>
+						
+						<div class = "form-group">
+							<div class="col-lg-10 col-lg-offset-2">
+								<button class= "btn btn-primary" id = "update">Update!</button>
+							</div>
+							</div>
+							<!--
+						<div class = "form-group">
+							<div class = "col-lg-10 col-lg-offset-2">
+								<textarea class="form-control" row = "3" id = "highlight">
+								</textarea>
+							</div>
+						</div>
+							-->
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+					
+										
+		</body>						

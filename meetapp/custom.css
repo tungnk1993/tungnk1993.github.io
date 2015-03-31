@@ -1,0 +1,10 @@
+#grid
+{
+	cursor: default;
+	-webkit-user-select: none;
+}
+
+option,select
+{
+	color: #2c3e50;
+}

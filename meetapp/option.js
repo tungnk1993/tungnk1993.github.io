@@ -7,6 +7,12 @@ $(function() {
 	
 	var weekday = ["SUN", "MON", "TUE", "WED" , "THU", "FRI", "SAT"];
 	var monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	
+	function editable()
+	{
+		$("#title").editable();
+		$("#duration").editable();
+	}
 	function init() 
 	{
 		mode = "sixty";
@@ -32,9 +38,16 @@ $(function() {
 				//endDate = new Date(dateText);
 				endDate = new Date(Date.parse($(this).datepicker('getDate')));
 				if (endDate < startDate) endDate = startDate;
-			}
+			},
+			
 		});
 		
+		var myDate = new Date();
+		var date = ('0'+ myDate.getDate()).slice(-2) + '-' + ('0'+ (Number(myDate.getMonth())+1)).slice(-2) + '-' + myDate.getFullYear() ;
+		$("#startDate").val(date);
+		$("#endDate").val(date);
+		$("#from").val(8);
+		$("#to").val(12);
 		// init day of the week
 		
 		for (var i = 0; i <= 6; i++)
@@ -45,6 +58,7 @@ $(function() {
 	}
 	
 	init();
+	editable();
 	
 	$("#sixty").click(function () 
 	{
@@ -122,7 +136,7 @@ $(function() {
 					var getmonth = curDate.getMonth()+1;
 					
 					col++;
-					var date = "<td r = '"+row+"' c = '"+col+"' class = ' info date'>" + weekday[day] + " " + getday+"/"+getmonth+"</td>";
+					var date = "<td r = '"+row+"' c = '"+col+"' class = ' warning date'>" + weekday[day] + " " + getday+"/"+getmonth+"</td>";
 					console.log(date);
 					
 					tr.append(date);
@@ -292,7 +306,7 @@ $(function() {
 			{
 				col++;
 				var text = weekday[i];
-				var td = "<td r = "+row+" c = "+col+" class = 'info date'>"+text+"</td>";
+				var td = "<td r = "+row+" c = "+col+" class = 'warning date'>"+text+"</td>";
 				tr.append(td);
 			}
 			$("#grid").append(tr);

@@ -13,7 +13,7 @@
 		</script>
 		<script src="http://d3js.org/d3.v3.min.js"></script>
 		<script src="http://momentjs.com/downloads/moment.js"></script>
-		<script src="http://momentjs.com/downloads/moment-timezone-with-data.js"></script>
+		<script src="http://momentjs.com/downloads/moment-timezone-with-data-2010-2020.js"></script>
 	</head>
 
 	<body>
@@ -111,7 +111,7 @@
 					success: function(result){
 						$("#headline").html("Streaming schedule of " + stream_id);
 						$("#error").html("");
-						console.log(result);
+						//console.log(result);
 						console.log("Videos found", result["_total"]);
 						var punch_data = process_data(result["videos"]);
 					},
@@ -122,16 +122,20 @@
 			}
 
 			$(function() {
+				console.log(moment.tz.guess());
+				console.log(moment.tz("2017-01-24T03:56:12Z", moment.tz.guess()).format('Z z'));
+				console.log(moment.tz("2017-01-24T03:56:12Z", moment.tz.guess()).isDST());
+				
 				$("#timezone").html(moment.tz.guess());
 				$('#submit').click(function() {
-					console.log("Click submit");
+					//console.log("Click submit");
 					var stream_url = $('#stream_url').val().trim();
-					console.log(stream_url);
+					//console.log(stream_url);
 					if (stream_url[stream_url.length - 1] == '/') 
 						stream_url = stream_url.substring(0, stream_url.length - 1);
-					console.log(stream_url);
+					//console.log(stream_url);
 					var stream_id = stream_url.substring(stream_url.lastIndexOf("/") + 1);
-					console.log(stream_id);
+					//console.log(stream_id);
 
 					var vods_data = fetchData(stream_id);
 				});

@@ -33,7 +33,6 @@
 					<div class="col-xs-12">
 						<label class="form-control-label">Streamer URL</label>
 					</div>
-
 					<div class="col-xs-6">
 						<input type="text" class="form-control" id ="stream_url">
 					</div>
@@ -42,7 +41,11 @@
 					</div>
 
 					<div class="col-xs-12" style="padding-top:10px">
-						<small class="form-text text-muted">Example: https://www.twitch.tv/admiralbulldog</small>
+						<small class="form-text text-muted">Example: <br>
+							- https://www.twitch.tv/admiralbulldog <br>
+							- https://www.twitch.tv/admiralbulldog/ <br>
+							- admiralbulldog <br>
+						</small>
 					</div>
 
 					<div class="col-xs-12">
@@ -50,6 +53,14 @@
 					</div>
 				</div>
 
+				<div class="row col-xs-offset-3" style="margin-top:30px">
+					<div class="col-xs-12">
+						<label class="form-control-label">Direct URL for sharing</label>
+					</div>
+					<div class="col-xs-8">
+						<input type="text" class="form-control" id ="direct_url">
+					</div>
+				</div>
 			</div>
 		</div>
 		<script src="main.js"></script>
@@ -105,12 +116,14 @@
 			function fetchData(stream_id) {
 				var api = 'https://api.twitch.tv/kraken/channels/' + stream_id + 
 							'/videos?limit=100&broadcast_type=archive&client_id=9z62jo70mxlukt3ec7dj9vhhvb0yna';
-
+				//$("#headline").html("Fetching...");
 				$.ajax({
 					url: api, 
 					success: function(result){
 						$("#headline").html("Streaming schedule of " + stream_id);
 						$("#error").html("");
+						$("#direct_url").val("tungnk1993.github.io/WhenStreamerOnline/?id=" + stream_id);
+
 						//console.log(result);
 						console.log("Videos found", result["_total"]);
 						var punch_data = process_data(result["videos"]);
@@ -121,23 +134,45 @@
 				});
 			}
 
+			var getUrlParameter = function getUrlParameter(sParam) {
+			    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			        sURLVariables = sPageURL.split('&'),
+			        sParameterName,
+			        i;
+
+			    for (i = 0; i < sURLVariables.length; i++) {
+			        sParameterName = sURLVariables[i].split('=');
+
+			        if (sParameterName[0] === sParam) {
+			            return sParameterName[1] === undefined ? true : sParameterName[1];
+			        }
+			    }
+			};
+
+			function process_input(stream_url) {
+				/*	Accept
+					- https://www.twitch.tv/admiralbulldog
+					- https://www.twitch.tv/admiralbulldog/
+					- admiralbulldog
+				*/
+				var stream_regex = /[^\/]+(?=\/$|$)/g;
+				var stream_id = stream_url.trim().match(stream_regex);
+				return stream_id;
+			}
+
 			$(function() {
 				console.log(moment.tz.guess());
 				console.log(moment.tz("2017-01-24T03:56:12Z", moment.tz.guess()).format('Z z'));
 				console.log(moment.tz("2017-01-24T03:56:12Z", moment.tz.guess()).isDST());
-				
 				$("#timezone").html(moment.tz.guess());
-				$('#submit').click(function() {
-					//console.log("Click submit");
-					var stream_url = $('#stream_url').val().trim();
-					//console.log(stream_url);
-					if (stream_url[stream_url.length - 1] == '/') 
-						stream_url = stream_url.substring(0, stream_url.length - 1);
-					//console.log(stream_url);
-					var stream_id = stream_url.substring(stream_url.lastIndexOf("/") + 1);
-					//console.log(stream_id);
 
-					var vods_data = fetchData(stream_id);
+				if (typeof getUrlParameter('id') !== "undefined") {
+					fetchData(process_input(getUrlParameter('id')));
+				}
+
+				$('#submit').click(function() {
+					var stream_url = $('#stream_url').val();
+					var vods_data = fetchData(process_input(stream_url));
 				});
 			});
 		</script>

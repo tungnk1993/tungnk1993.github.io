@@ -105,7 +105,7 @@ function update(data, labelsX) {
         .attr('r', function(d){ return r(d) })
         .attr('cx', function(d, i){ return i * maxR * 2 + maxR })
         .style('fill', function(d){ return 'rgb(231,76,60)'})
- 
+            
 
     var xLabels = chart.selectAll('.xLabel')
         .data(labelsX)

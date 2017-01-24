@@ -11,9 +11,9 @@
 				integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 				crossorigin="anonymous">
 		</script>
-		<script src="http://d3js.org/d3.v3.min.js"></script>
-		<script src="http://momentjs.com/downloads/moment.js"></script>
-		<script src="http://momentjs.com/downloads/moment-timezone-with-data-2010-2020.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js"></script>
+		<script src="https://momentjs.com/downloads/moment.js"></script>
+		<script src="https://momentjs.com/downloads/moment-timezone-with-data-2010-2020.js"></script>
 	</head>
 
 	<body>
@@ -119,7 +119,7 @@
 					url: api, 
 					success: function(result){
 						$("#headline").html("Streaming schedule of " + stream_id);
-						$("#direct_url").val("tungnk1993.github.io/WhenStreamerOnline/?id=" + stream_id);
+						$("#direct_url").val("https://tungnk1993.github.io/WhenStreamerOnline/?id=" + stream_id);
 
 						//console.log(result);
 						console.log("Videos found", result["_total"]);

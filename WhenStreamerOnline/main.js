@@ -150,7 +150,7 @@ function update(data, labelsX) {
         .attr('y', function(d, i){ return maxR * i * 2 + maxR + xLabelHeight })
         .attr('transform', 'translate(-6,' + maxR / 2.5 + ')')
         .style('fill-opacity', 1)
-
+    
     var vert = chart.selectAll('.vert')
         .data(labelsX)
 

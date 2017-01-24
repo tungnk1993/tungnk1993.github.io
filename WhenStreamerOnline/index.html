@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="col-lg-12">
 				<div class="row col-lg-12 text-center">
-					<h2>Find out when your favorite streamers go online</h2>
+					<h2><span id="headline">Find out when your favorite streamers go online</span></h2>
 					<h3>Timezone - <span id="timezone"></span> </h3>
 				</div>
 
@@ -109,13 +109,14 @@
 				$.ajax({
 					url: api, 
 					success: function(result){
+						$("#headline").html("Streaming schedule of " + stream_id);
 						$("#error").html("");
 						console.log(result);
 						console.log("Videos found", result["_total"]);
 						var punch_data = process_data(result["videos"]);
 					},
 					error: function(xhr, status, error) {
-						$("#error").html("Wrong URL format");
+						$("#error").html("Wrong URL format or channel name");
 					}
 				});
 			}

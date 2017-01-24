@@ -48,9 +48,6 @@
 						</small>
 					</div>
 
-					<div class="col-xs-12">
-						<span class="text-danger" id="error"></span>
-					</div>
 				</div>
 
 				<div class="row col-xs-offset-3" style="margin-top:30px">
@@ -116,12 +113,12 @@
 			function fetchData(stream_id) {
 				var api = 'https://api.twitch.tv/kraken/channels/' + stream_id + 
 							'/videos?limit=100&broadcast_type=archive&client_id=9z62jo70mxlukt3ec7dj9vhhvb0yna';
-				//$("#headline").html("Fetching...");
+				$("#headline").html("Fetching...");
+				
 				$.ajax({
 					url: api, 
 					success: function(result){
 						$("#headline").html("Streaming schedule of " + stream_id);
-						$("#error").html("");
 						$("#direct_url").val("tungnk1993.github.io/WhenStreamerOnline/?id=" + stream_id);
 
 						//console.log(result);
@@ -129,7 +126,7 @@
 						var punch_data = process_data(result["videos"]);
 					},
 					error: function(xhr, status, error) {
-						$("#error").html("Wrong URL format or channel name");
+						$("#headline").html("Wrong URL format or channel name");
 					}
 				});
 			}

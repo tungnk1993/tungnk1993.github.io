@@ -92,7 +92,7 @@
 						var start_time = moment.tz(record_time, user_tz);
 						var sum = 0;
 						while (sum <= record_length) {
-							var current_time = start_time.add(3600, 's');
+							var current_time = moment.tz(start_time.add(3600, 's'), user_tz);
 							sum += 3600;
 							var isoWeekday = current_time.isoWeekday() - 1;
 							var hour = current_time.hour();
